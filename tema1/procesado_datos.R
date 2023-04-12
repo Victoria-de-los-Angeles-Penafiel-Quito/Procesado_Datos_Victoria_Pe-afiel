@@ -100,8 +100,28 @@ datos$CH20 <- as.numeric(datos$CH20)
 ### Haced una tabla con la n de cada subgrupo formado
 ### y el p valor asociado y los valores esperados medios
 
-### ¿Qué genero está mas asociado con la obesidad?
-### dicho genero, su familia esta asociada con obesidad?
+### ¿La obesidad esta asociada al genero?
+
+obesidad <- datos$NObeyesdad
+genero <- datos$Gender
+
+tabla <- (table(obesidad,genero))
+
+###ji cuadrado No esta asociado el genero y la obesidad?
+### 
+
+chisq.test(tabla)
+
+### el genero no esta relacionado con la historia familiar de la obesidad?
+
+historia <- datos$family_history_with_overweight
+genero <- datos$Gender
+
+tablah <- (table(historia,genero))
+
+chisq.test(tablah)
+
+
 ### ¿Cuales comen calorico pero no tienen obesidad? ¿
 ### De los que fuman, y no tienen obesidad, tienen actividad fisica
 ### en este paso habra preguntas, pregunten !
