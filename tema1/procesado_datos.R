@@ -121,8 +121,14 @@ tablah <- (table(historia,genero))
 
 chisq.test(tablah)
 
+###binom.test(811,811+915,p=0.5) primer dato es de la pregunta que se realiza
+### el segundo es de la suma total de datos de una variable
+### tercero es de la probabilidad
+### binom.test(153,153+232,p=0.5)
 
 ### ¿Cuales comen calorico pero no tienen obesidad? ¿
+datos$obesidad <- datos$NObeyesdad(-grep("obesity",ignore.case = T, datos$NObeyesdad),)
+
 ### De los que fuman, y no tienen obesidad, tienen actividad fisica
 ### en este paso habra preguntas, pregunten !
 ### beben alcohol y caminan ?
@@ -135,6 +141,10 @@ chisq.test(tablah)
 ### y las categoricas cuando hay solo dos niveles
 ###   que sucede cuando hay más de un nivel ?
 
+altura <- datos$Height
+genero <- datos$Gender
 
+x <- split(altura,genero)
 
+pvalues  <- unlist(lapply(l,function,ks.test(x,"pnorm")))
 
